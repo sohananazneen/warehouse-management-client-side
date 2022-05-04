@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => {
     return (
         <header>
-            <Navbar collapseOnSelect expand="lg" sticky='top' bg='dark' variant="dark">
+            <Navbar collapseOnSelect expand="lg" fixed='top' className='headerBg' variant="dark">
                 <Container>
                     <Navbar.Brand as={Link} to="/">
                         <h2>Halal Grocery</h2>
