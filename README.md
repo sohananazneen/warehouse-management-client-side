@@ -11,7 +11,7 @@ Halal grocery store inventory management website is specifically designed for al
 
 * Banner
 
-* Service Section
+* Items Section
 
 * FAQ
 

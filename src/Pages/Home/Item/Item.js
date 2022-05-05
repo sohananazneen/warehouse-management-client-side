@@ -1,8 +1,13 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Item = ({ item }) => {
-    const { name, img, short_description, price, quantity, supplier } = item;
+    const { id, name, img, short_description, price, quantity, supplier } = item;
+    const navigate = useNavigate();
+    const navigateToUpdate = id => {
+        navigate(`/inventory/${id}`);
+    }
     return (
         <Col md={4} className="mb-4">
             <Card style={{ height: '650px' }}>
@@ -15,7 +20,7 @@ const Item = ({ item }) => {
                     <Card.Text>
                         {short_description}
                     </Card.Text>
-                    <Button>Update</Button>
+                    <Button onClick={() => navigateToUpdate(id)} className='btn btn-primary'>Update</Button>
                 </Card.Body>
             </Card>
         </Col>
