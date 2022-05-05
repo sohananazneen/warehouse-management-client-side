@@ -10,21 +10,19 @@ const Items = () => {
             .then(data => setItems(data));
     }, [])
     return (
-        <>
-            <div id="items">
-                <Container>
-                    <h2 className='text-primary text-center mt-4'>Items</h2>
-                    <Row className="d-flex justify-content-center mt-4">
-                        {
-                            items.map(item => <Item
-                                key={item.id}
-                                item={item}
-                            ></Item>)
-                        }
-                    </Row>
-                </Container>
-            </div>
-        </>
+        <div id="items" className='my-4'>
+            <Container>
+                <h2 className='text-center mt-4'>Items</h2>
+                <Row className="d-flex justify-content-center mt-4">
+                    {
+                        items.map(item => <Item
+                            key={item.id}
+                            item={item}
+                        ></Item>)
+                    }
+                </Row>
+            </Container>
+        </div>
     );
 };
 export default Items;
