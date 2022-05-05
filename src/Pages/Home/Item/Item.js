@@ -20,7 +20,7 @@ const Item = ({ item }) => {
                     <Card.Text>
                         {short_description}
                     </Card.Text>
-                    <Button onClick={() => navigateToUpdate(id)} className='btn btn-primary'>Update</Button>
+                    <Button onClick={() => navigateToUpdate(id)} className='btn btn-success'>Update</Button>
                 </Card.Body>
             </Card>
         </Col>

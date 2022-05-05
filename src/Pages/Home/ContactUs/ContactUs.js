@@ -1,9 +1,27 @@
 import React from 'react';
+import { Button, Form } from 'react-bootstrap';
 
 const ContactUs = () => {
     return (
-        <div>
-
+        <div className='my-4'>
+            <hr />
+            <h2 className='text-center'>Get In Touch</h2>
+            <div className='d-flex justify-content-center'>
+                <Form className='w-50'>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="name" placeholder="Enter Name" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter Email" />
+                    </Form.Group>
+                    <Button variant="success" type="submit" className='mx-auto d-block'>
+                        Submit
+                    </Button>
+                </Form>
+            </div>
+            <hr />
         </div>
     );
 };

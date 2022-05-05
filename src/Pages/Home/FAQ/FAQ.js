@@ -46,7 +46,6 @@ const FAQ = () => {
                     </Col>
                 </Row>
             </Container>
-
         </div>
     );
 };
