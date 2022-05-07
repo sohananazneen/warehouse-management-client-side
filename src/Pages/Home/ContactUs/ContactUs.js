@@ -7,7 +7,7 @@ const ContactUs = () => {
             <hr />
             <h2 className='text-center'>Get In Touch</h2>
             <div className='d-flex justify-content-center'>
-                <Form className='w-50 border border-success rounded p-4'>
+                <Form className='w-50 border border-success rounded-pill text-center p-5 m-5'>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="name" placeholder="Enter Name" />

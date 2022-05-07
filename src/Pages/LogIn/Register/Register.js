@@ -1,19 +1,34 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
     const navigate = useNavigate();
 
     const navigateLogin = () => {
         navigate('/login');
     }
-    const handleRegister = event => {
+
+    if (user) {
+        navigate('/home');
+    }
+    const handleRegister = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
+
+        await createUserWithEmailAndPassword(email, password);
     }
     return (
         <Container>
@@ -32,13 +47,7 @@ const Register = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password" placeholder="Password" required />
                     </Form.Group>
-                    {/* Terms & condition checkbox */}
-                    {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Accept Terms & conditions" onClick={() => setAgree(!agree)} name="terms" className={`ps-2 ${agree ? '' : 'text-danger'}`}
-                    />
-                </Form.Group> */}
-                    <Button variant="success border border-success rounded-pill w-50 mx-auto d-block mb-2" type="submit"
-                        value="Register">
+                    <Button variant="success border border-success rounded-pill w-50 mx-auto d-block mb-2" type="submit" value="Register">
                         Register
                     </Button>
                 </Form>

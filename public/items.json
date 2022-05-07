@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "img": "https://i.ibb.co/ZYNx8SV/honey.jpg",
+    "img": "https://i.ibb.co/H7hMH8y/mixed-dryfruits-nuts.png",
     "price": 570,
     "quantity": 1,
     "name": "Mixed Dry Fruits",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "img": "https://i.ibb.co/H7hMH8y/mixed-dryfruits-nuts.png",
+    "img": "https://i.ibb.co/q9ZVydn/tin-fol-dried-fig.jpg",
     "price": 260,
     "quantity": 1,
     "name": "Tin/Dried Figs",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "img": "https://i.ibb.co/R2qhG0H/sesam-seed.jpg",
+    "img": "https://i.ibb.co/ZYNx8SV/honey.jpg",
     "price": 55,
     "quantity": 1,
     "name": "Honey",
@@ -51,7 +51,7 @@
   },
   {
     "id": 6,
-    "img": "https://i.ibb.co/q9ZVydn/tin-fol-dried-fig.jpg",
+    "img": "https://i.ibb.co/R2qhG0H/sesam-seed.jpg",
     "price": 220,
     "quantity": 1,
     "name": "White Sesame Seed",
