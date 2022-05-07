@@ -16,7 +16,7 @@ const Home = () => {
                 <Row className="d-flex justify-content-center mt-4">
                     {
                         items.slice(0, 6).map(item => <Item
-                            key={item.id}
+                            key={item._id}
                             item={item}
                         ></Item>)
                     }
