@@ -6,7 +6,7 @@ const Item = ({ item }) => {
     const { id, name, img, short_description, price, quantity, supplier } = item;
     const navigate = useNavigate();
     const navigateToUpdate = id => {
-        navigate(`/inventory/${id}`);
+        navigate(`/item/${id}`);
     }
     return (
         <Col md={4} className="mb-4">
