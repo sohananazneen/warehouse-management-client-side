@@ -3,7 +3,7 @@ import { Button, Card, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const Item = ({ item }) => {
-    const { id, name, img, short_description, price, quantity, supplier } = item;
+    const { _id, name, img, short_description, price, quantity, supplier } = item;
     const navigate = useNavigate();
     const navigateToUpdate = id => {
         navigate(`/item/${id}`);
@@ -17,10 +17,8 @@ const Item = ({ item }) => {
                     <Card.Text><strong> || Price: $ {price} ||</strong></Card.Text>
                     <Card.Text>Quantity: {quantity}</Card.Text>
                     <Card.Text>Supplier Name: {supplier}</Card.Text>
-                    <Card.Text>
-                        {short_description}
-                    </Card.Text>
-                    <Button onClick={() => navigateToUpdate(id)} className='btn btn-success'>Update</Button>
+                    <Card.Text>{short_description}</Card.Text>
+                    <Button onClick={() => navigateToUpdate(_id)} className='btn btn-success'>Update</Button>
                 </Card.Body>
             </Card>
         </Col>
