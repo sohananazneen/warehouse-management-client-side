@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const AddItem = () => {
     const { register, handleSubmit } = useForm();
@@ -16,9 +16,11 @@ const AddItem = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                if (result.insertedId) {
+                    toast('Item Added');
+                    result.reset();
+                };
             })
-        toast('Item Added');
     };
 
     return (
@@ -36,7 +38,6 @@ const AddItem = () => {
 
                 <input className='btn btn-success' type="submit" value="Add Items" />
             </form>
-            <ToastContainer />
         </div>
     );
 };

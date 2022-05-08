@@ -1,13 +1,36 @@
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useInventoryDetails from '../../hooks/useInventoryDetails';
+import axios from 'axios';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const InventoryDetails = () => {
     const { id } = useParams();
     const [inventory] = useInventoryDetails(id);
+    const [user] = useAuthState(auth);
+
     const navigate = useNavigate();
     const navigateToManage = () => {
         navigate(`/manageInventories`);
+    }
+
+    const handleRestock = event => {
+        event.preventDefault();
+        const restock = {
+            inventoryId: inventory._id,
+            email: user.email,
+            quantity: inventory.quantity
+        }
+        axios.post('http://localhost:4000/restock', restock)
+            .then(response => {
+                const { data } = response;
+                if (data.insertedId) {
+                    toast('Restock Item');
+                    event.target.reset();
+                }
+            })
     }
     return (
         <div>
@@ -34,16 +57,14 @@ const InventoryDetails = () => {
                     </Col>
                     <Col>
                         <h2>Restock the items</h2>
-                        <Form className='border border-success rounded-pill p-5 my-4'>
-                            <Form.Group className="mb-3" controlId="formBasicText">
-                                <Form.Control type="text" placeholder="Enter numbers" />
-                            </Form.Group>
-                            <Button className='btn btn-success mx-2'>Restock</Button>
+                        <Form onSubmit={handleRestock} className='border border-success  rounded-pill p-5 my-4'>
+                            <input className='w-100 mb-2' type="number" name="quantity" placeholder='Enter Quantity' required />
+                            <br />
+                            <input className='btn btn-primary' type="submit" value="Restock" />
                         </Form>
                     </Col>
                 </Row>
             </Container>
-
         </div>
     );
 };

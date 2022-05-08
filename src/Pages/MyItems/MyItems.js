@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import useInventory from '../../hooks/useInventory';
-import Inventory from '../Home/Inventory/Inventory';
+import axios from 'axios';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const MyItems = () => {
-    const [inventory, setInventory] = useInventory();
-    const navigate = useNavigate();
+    const [restock, setRestock] = useState([]);
+    const [user] = useAuthState(auth);
+    useEffect(() => {
+        const getRestock = async () => {
+            const email = user.email;
+            const url = `http://localhost:4000/restock?email=${email}`;
+            try {
+                const { data } = await axios.get(url);
+                setRestock(data);
+            }
+            catch (error) {
+
+            }
+        }
+        getRestock();
+    }, [user])
     return (
         <Container>
             <h2 className='text-center mt-4'>Manage Inventory Items</h2>
             <Row className="d-flex justify-content-center mt-4">
-                {
-                    inventory.map(inventory => <Inventory
-                        key={inventory._id}
-                        inventory={inventory}
-                    ></Inventory>)
-                }
+                <h2>Restoked Item: {restock.length}</h2>
             </Row>
         </Container>
     );

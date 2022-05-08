@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
 import Inventory from '../Home/Inventory/Inventory';
