@@ -13,8 +13,8 @@ const Footer = () => {
                     <Row>
                         <Col xs={6} md={2}>
                             <Nav>
-                                <Nav.Link href="home">Home</Nav.Link>
-                                <Nav.Link href="home#items">Items</Nav.Link>
+                                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                                <Nav.Link as={Link} to="/items">Items</Nav.Link>
                                 <Nav.Link as={Link} to="about">About</Nav.Link>
                                 <Nav.Link as={Link} to="blog">Blog</Nav.Link>
                                 <Nav.Link as={Link} to="login">

@@ -2,11 +2,12 @@ import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-const Item = ({ item }) => {
-    const { _id, name, img, short_description, price, quantity, supplier } = item;
+const Inventory = ({ inventory }) => {
+    const { _id, name, img, short_description, price, quantity, supplier } = inventory;
+
     const navigate = useNavigate();
     const navigateToUpdate = id => {
-        navigate(`/item/${id}`);
+        navigate(`/inventory/${id}`);
     }
     return (
         <Col md={4} className="mb-4">
@@ -24,4 +25,4 @@ const Item = ({ item }) => {
         </Col>
     );
 };
-export default Item;
+export default Inventory;

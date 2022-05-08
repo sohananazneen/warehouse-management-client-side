@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './Pages/About/About';
+import AddItem from './Pages/AddItem/AddItem';
 import Blog from './Pages/Blog/Blog';
+import Delivered from './Pages/Delivered/Delivered';
 import Home from './Pages/Home/Home/Home';
-import Items from './Pages/Home/Items/Items';
-import Inventory from './Pages/Inventory/Inventory';
+import ItemInventorys from './Pages/Home/ItemInventorys/ItemInventorys';
+import InventoryDetails from './Pages/InventoryDetails/InventoryDetails';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
@@ -19,15 +21,24 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/items' element={<Items></Items>}></Route>
+        <Route path='/items' element={<ItemInventorys></ItemInventorys>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
-        {/* <Route path='/item/:itemId' element={<Inventory></Inventory>}></Route> */}
-        <Route path="/item/:itemId" element={
+        <Route path='/inventory/:id' element={
           <RequireAuth>
-            <Inventory></Inventory>
+            <InventoryDetails></InventoryDetails>
+          </RequireAuth>
+        }></Route>
+        <Route path='/delivered/:id' element={
+          <RequireAuth>
+            <Delivered></Delivered>
+          </RequireAuth>
+        }></Route>
+        <Route path="/addItem" element={
+          <RequireAuth>
+            <AddItem></AddItem>
           </RequireAuth>
         }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
