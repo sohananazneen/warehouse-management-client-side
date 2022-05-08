@@ -1,4 +1,4 @@
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import useInventoryDetails from '../../hooks/useInventoryDetails';
 
@@ -31,6 +31,15 @@ const InventoryDetails = () => {
                                 </div>
                             </Card.Body>
                         </Card>
+                    </Col>
+                    <Col>
+                        <h2>Restock the items</h2>
+                        <Form className='border border-success rounded-pill p-5 my-4'>
+                            <Form.Group className="mb-3" controlId="formBasicText">
+                                <Form.Control type="text" placeholder="Enter numbers" />
+                            </Form.Group>
+                            <Button className='btn btn-success mx-2'>Restock</Button>
+                        </Form>
                     </Col>
                 </Row>
             </Container>
