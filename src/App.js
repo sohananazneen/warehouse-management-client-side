@@ -3,7 +3,6 @@ import './App.css';
 import About from './Pages/About/About';
 import AddItem from './Pages/AddItem/AddItem';
 import Blog from './Pages/Blog/Blog';
-import Delivered from './Pages/Delivered/Delivered';
 import Home from './Pages/Home/Home/Home';
 import InventoryItem from './Pages/Home/InventoryItem/InventoryItem';
 import InventoryDetails from './Pages/InventoryDetails/InventoryDetails';
@@ -11,6 +10,7 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
+import MyItems from './Pages/MyItems/MyItems';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import NotFound from './Pages/Shared/NotFound/NotFound';
@@ -42,14 +42,14 @@ function App() {
             <InventoryDetails></InventoryDetails>
           </RequireAuth>
         }></Route>
-        <Route path='/delivered/:id' element={
-          <RequireAuth>
-            <Delivered></Delivered>
-          </RequireAuth>
-        }></Route>
         <Route path="/addItem" element={
           <RequireAuth>
             <AddItem></AddItem>
+          </RequireAuth>
+        }></Route>
+        <Route path="/myItems" element={
+          <RequireAuth>
+            <MyItems></MyItems>
           </RequireAuth>
         }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
