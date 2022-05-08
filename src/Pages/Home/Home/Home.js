@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useInventory from '../../../hooks/useInventory';
+import InventoryDetails from '../../InventoryDetails/InventoryDetails';
 import Banner from '../Banner/Banner';
 import ContactUs from '../ContactUs/ContactUs';
 import FAQ from '../FAQ/FAQ';
@@ -12,7 +13,7 @@ const Home = () => {
 
     const navigate = useNavigate();
     const navigateToManage = () => {
-        navigate(`/inventory`);
+        navigate(`/manageInventories`);
     }
     return (
         <div>
@@ -29,8 +30,8 @@ const Home = () => {
                     <Button onClick={() => navigateToManage()} className='btn btn-success'>Manage Inventories</Button>
                 </Row>
             </Container>
-            <FAQ></FAQ>
             <ContactUs></ContactUs>
+            <FAQ></FAQ>
         </div>
     );
 };

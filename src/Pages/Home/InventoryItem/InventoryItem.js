@@ -2,7 +2,7 @@ import { Container, Row } from 'react-bootstrap';
 import useInventory from '../../../hooks/useInventory';
 import Inventory from '../Inventory/Inventory';
 
-const ItemInventorys = () => {
+const InventoryItem = () => {
     const [inventory, setInventory] = useInventory();
     return (
         <div className='my-4'>
@@ -20,4 +20,4 @@ const ItemInventorys = () => {
         </div>
     );
 };
-export default ItemInventorys;
+export default InventoryItem;
