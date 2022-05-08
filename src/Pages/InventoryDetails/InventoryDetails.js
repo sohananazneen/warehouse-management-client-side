@@ -1,10 +1,14 @@
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import useInventoryDetails from '../../hooks/useInventoryDetails';
 
 const InventoryDetails = () => {
     const { id } = useParams();
     const [inventory] = useInventoryDetails(id);
+    const navigate = useNavigate();
+    const navigateToManage = () => {
+        navigate(`/manageInventories`);
+    }
     return (
         <div>
             <Container>
@@ -18,10 +22,12 @@ const InventoryDetails = () => {
                                 <Card.Text>Quantity: {inventory.quantity}</Card.Text>
                                 <Card.Text>Supplier Name: {inventory.supplier}</Card.Text>
                                 <Card.Text>{inventory.description}</Card.Text>
-                                <div className='text-center'>
+                                <Card.Text>Sold:</Card.Text>
+                                <div className='text-center mx-2'>
                                     <Link to={`/delivered/${id}`}>
-                                        <button className='btn btn-primary'>Delivered</button>
+                                        <button className='btn btn-success'>Delivered</button>
                                     </Link>
+                                    <Button onClick={() => navigateToManage()} className='btn btn-success mx-2'>Manage Inventories</Button>
                                 </div>
                             </Card.Body>
                         </Card>
