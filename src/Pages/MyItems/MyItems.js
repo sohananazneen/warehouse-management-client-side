@@ -25,7 +25,7 @@ const MyItems = () => {
         <Container>
             <h2 className='text-center mt-4'>Manage Inventory Items</h2>
             <Row className="d-flex justify-content-center mt-4">
-                <h2>Restoked Item: {restock.length}</h2>
+                <h2>Your Stoked Items: {restock.length}</h2>
             </Row>
         </Container>
     );

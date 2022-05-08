@@ -42,7 +42,9 @@ const Header = () => {
                                 user ?
                                     <>
                                         <Nav.Link onClick={handleSignOut}>Sign out</Nav.Link>
-
+                                        <Navbar.Brand as={Link} to="myItems">
+                                            <h6>Signed in as: ||{user.displayName}||</h6>
+                                        </Navbar.Brand>
                                     </>
                                     :
                                     <>

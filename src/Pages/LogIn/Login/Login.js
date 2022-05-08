@@ -7,6 +7,7 @@ import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -34,11 +35,14 @@ const Login = () => {
     if (error) {
         errorElement = <p className='text-danger'>Error: {error?.message}</p>
     }
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('http://localhost:4000/login', { email });
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
     }
 
     const navigateRegister = event => {
@@ -57,7 +61,7 @@ const Login = () => {
     return (
         <Container>
             <div className='w-50 mx-auto my-4 text-center'>
-                <h2 className='text-success text-center mt-2'>Please Login</h2>
+                <h2 className='text-success text-center mt-2'>Please Sign in</h2>
                 <Form onSubmit={handleSubmit} className='border border-success rounded-pill p-5 my-4'>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Control type="email" ref={emailRef} placeholder="Enter email" required />
