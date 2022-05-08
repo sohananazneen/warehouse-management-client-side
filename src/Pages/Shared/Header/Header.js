@@ -26,17 +26,21 @@ const Header = () => {
                             <Nav.Link as={Link} to="blog">Blog</Nav.Link>
                             <Nav.Link as={Link} to="about">About</Nav.Link>
                             {
+                                user && <>
+                                    <Nav.Link as={Link} to="manageInventories">
+                                        Manage Item
+                                    </Nav.Link>
+                                    <Nav.Link as={Link} to="addItem">
+                                        Add Item
+                                    </Nav.Link>
+                                    <Nav.Link as={Link} to="myItem">
+                                        My items
+                                    </Nav.Link>
+                                </>
+                            }
+                            {
                                 user ?
                                     <>
-                                        <Nav.Link as={Link} to="manageInventories">
-                                            Manage Item
-                                        </Nav.Link>
-                                        <Nav.Link as={Link} to="addItem">
-                                            Add Item
-                                        </Nav.Link>
-                                        <Nav.Link as={Link} to="myItem">
-                                            My items
-                                        </Nav.Link>
                                         <Nav.Link onClick={handleSignOut}>Sign out</Nav.Link>
 
                                     </>
