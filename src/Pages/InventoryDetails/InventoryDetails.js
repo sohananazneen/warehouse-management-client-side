@@ -21,7 +21,10 @@ const InventoryDetails = () => {
         const restock = {
             inventoryId: inventory._id,
             email: user.email,
-            quantity: inventory.quantity
+            quantity: inventory.quantity,
+            name: inventory.name,
+            price: inventory.price,
+            description: inventory.description
         }
         axios.post('http://localhost:4000/restock', restock)
             .then(response => {

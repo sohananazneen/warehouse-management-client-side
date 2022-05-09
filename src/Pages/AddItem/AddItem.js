@@ -18,7 +18,7 @@ const AddItem = () => {
             .then(result => {
                 if (result.insertedId) {
                     toast('Item Added');
-                    result.reset();
+                    data.target.reset();
                 };
             })
     };
@@ -26,11 +26,15 @@ const AddItem = () => {
     return (
         <div className='w-50 mx-auto'>
             <h2 className='text-center'>Add Inventory Item </h2>
-            <form className='d-flex flex-column border border-success rounded-pill p-5 my-4' onSubmit={handleSubmit(onSubmit)}>
+            <form className='d-flex flex-column border border-success  p-5 my-4' onSubmit={handleSubmit(onSubmit)}>
 
                 <input className='mb-2' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
 
                 <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
+
+                <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} />
+
+                <input className='mb-2' placeholder='Supplier Name' type="text" {...register("supplier")} />
 
                 <textarea className='mb-2' placeholder='Description' {...register("description")} />
 

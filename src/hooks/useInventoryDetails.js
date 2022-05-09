@@ -10,6 +10,6 @@ const useInventoryDetails = id => {
             .then(data => setInventory(data));
 
     }, [id]);
-    return [inventory]
+    return [inventory, setInventory]
 }
 export default useInventoryDetails;
