@@ -8,7 +8,7 @@ import auth from '../../firebase.init';
 
 const InventoryDetails = () => {
     const { id } = useParams();
-    const [inventory] = useInventoryDetails(id);
+    const [inventory, setInventory] = useInventoryDetails(id);
     const [user] = useAuthState(auth);
 
     const navigate = useNavigate();
@@ -35,6 +35,25 @@ const InventoryDetails = () => {
                 }
             })
     }
+
+    const handleDelivered = () => {
+        const newQuantity = parseInt(inventory.quantity) - 1;
+        const updateQuantity = newQuantity;
+        fetch(`http://localhost:4000/inventory/${id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({ updateQuantity }),
+        })
+            .then(res => res.json())
+            .then(data => {
+                alert('Delivered')
+                setInventory(parseInt(data?.newQuantity))
+
+            });
+    }
+
     return (
         <div>
             <Container>
@@ -49,10 +68,7 @@ const InventoryDetails = () => {
                                 <Card.Text>Supplier Name: {inventory.supplier}</Card.Text>
                                 <Card.Text>{inventory.description}</Card.Text>
                                 <Card.Text>Sold:</Card.Text>
-                                <div className='text-center mx-2'>
-                                    <Link to={`/delivered/${id}`}>
-                                        <button className='btn btn-success'>Delivered</button>
-                                    </Link>
+                                <div className='text-center mx-2'>                               <Button onClick={() => handleDelivered()} className='btn btn-success mx-2'>Delivered </Button>
                                     <Button onClick={() => navigateToManage()} className='btn btn-success mx-2'>Manage Inventories</Button>
                                 </div>
                             </Card.Body>
