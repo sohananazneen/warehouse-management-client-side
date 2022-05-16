@@ -40,7 +40,7 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('https://floating-citadel-85790.herokuapp.com/login', { email });
+        const { data } = await axios.post('https://rocky-spire-05391.herokuapp.com/login', { email });
         localStorage.setItem('accessToken', data.accessToken);
         navigate(from, { replace: true });
     }

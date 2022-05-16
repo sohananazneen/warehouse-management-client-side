@@ -26,7 +26,7 @@ const InventoryDetails = () => {
             price: inventory.price,
             description: inventory.description
         }
-        axios.post('https://floating-citadel-85790.herokuapp.com/restock', restock)
+        axios.post('https://rocky-spire-05391.herokuapp.com/restock', restock)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {
@@ -39,7 +39,7 @@ const InventoryDetails = () => {
     const handleDelivered = () => {
         const newQuantity = parseInt(inventory.quantity) - 1;
         const updateQuantity = newQuantity;
-        fetch(`https://floating-citadel-85790.herokuapp.com/inventory/${id}`, {
+        fetch(`https://rocky-spire-05391.herokuapp.com/inventory/${id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

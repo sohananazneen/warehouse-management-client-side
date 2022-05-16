@@ -17,7 +17,7 @@ const MyItems = () => {
     useEffect(() => {
         const getRestock = async () => {
             const email = user.email;
-            const url = `https://floating-citadel-85790.herokuapp.com/restock?email=${email}`;
+            const url = `https://rocky-spire-05391.herokuapp.com/restock?email=${email}`;
             try {
                 const { data } = await axiosPrivate.get(url);
                 setRestock(data);
@@ -35,7 +35,7 @@ const MyItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `https://floating-citadel-85790.herokuapp.com/inventory/${id}`;
+            const url = `https://rocky-spire-05391.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
