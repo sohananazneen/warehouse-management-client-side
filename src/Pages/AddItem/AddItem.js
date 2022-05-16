@@ -6,7 +6,7 @@ const AddItem = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        const url = `http://localhost:4000/inventory`;
+        const url = `https://floating-citadel-85790.herokuapp.com/inventory`;
         fetch(url, {
             method: 'POST',
             headers: {

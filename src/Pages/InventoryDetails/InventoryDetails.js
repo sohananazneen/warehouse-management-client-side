@@ -26,7 +26,7 @@ const InventoryDetails = () => {
             price: inventory.price,
             description: inventory.description
         }
-        axios.post('http://localhost:4000/restock', restock)
+        axios.post('https://floating-citadel-85790.herokuapp.com/restock', restock)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {
@@ -39,7 +39,7 @@ const InventoryDetails = () => {
     const handleDelivered = () => {
         const newQuantity = parseInt(inventory.quantity) - 1;
         const updateQuantity = newQuantity;
-        fetch(`http://localhost:4000/inventory/${id}`, {
+        fetch(`https://floating-citadel-85790.herokuapp.com/inventory/${id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
