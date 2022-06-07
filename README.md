@@ -7,30 +7,14 @@ Halal grocery store inventory management website is specifically designed for al
 --------------
 ### Features and functionality used :-
 
-* Header
+* Home page have Header, Banner, Items Section, Contact Us, FAQ, Footer.
 
-* Banner
+* In Manage Inventories only registered user can delete items, add items and can manage all items.
 
-* Items Section
+* Implement an email/password (login/register)-based login system and google authentication system.
 
-* FAQ
+* Registered users can see My items, Manage Items, Add Item pages.
 
-* Contact Us
+* Other Pages like About Us, Register, Login
 
-* Footer
-
-* About Us
-
-* Register
-
-* Login
-
-* React Js
-
-* React Bootstrap
-
-* React Router
-
-* MongoBD
-
-* firebase
+Technology Used: HTML, CSS, React Js, React Bootstrap, React Router, Node Js, Express Js, MongoDB, Firebase, Heroku.
